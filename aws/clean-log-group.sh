@@ -8,7 +8,7 @@ if [ "x$profile" == "x" ]; then
     exit 1
 fi
 
-log_streams=$(aws --profile ofidigital logs describe-log-streams --log-group-name $LOG_GROUP --query 'logStreams[].logStreamName' --output text)
+log_streams=$(aws logs describe-log-streams --log-group-name $LOG_GROUP --query 'logStreams[].logStreamName' --output text)
 for i in ${log_streams}; do
     echo "- $i"
     aws logs delete-log-stream --log-group-name $LOG_GROUP --log-stream-name $i
