@@ -3,7 +3,7 @@ set -e
 
 log_group=${1}
 
-if [ "x$profile" == "x" ]; then
+if [ "x$log_group" == "x" ]; then
     echo "Usage: ${0} <log_group>"
     exit 1
 fi
